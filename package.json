@@ -1,0 +1,29 @@
+{
+  "name": "react-native-oss-licenses",
+  "version": "0.0.1",
+  "description": "License list generator for react-native app",
+  "private": "true",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "bin": {
+    "react-native-licenses": "./bin/react-native-licenses.js"
+  },
+  "author": "k-tomoyasu",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^12.12.5",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.6.4",
+    "yarn": "^1.19.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.0.1",
+    "commander": "^4.0.0",
+    "fs-extra": "^8.1.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
