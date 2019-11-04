@@ -4,8 +4,8 @@ This CLI tool allow you to easily generate content of oss-license.
 
 ## Usage
 ### iOS
-`react-native-oss-license` generate `plist` that you can locate to `Settings.bundle`.
-Recommended to use with [LicensePlist](https://github.com/mono0926/LicensePlist) that scan cocoaopds, carthage.
+`react-native-oss-license` generate `plist` that you can locate to `Settings.bundle`.  
+Recommended to use with [LicensePlist](https://github.com/mono0926/LicensePlist) that scan cocoaopds, carthage.  
 You can merge output `react-native-oss-license` and `LicensePlist`.
 
 ### Android
@@ -42,3 +42,7 @@ output settings-bundle format to 'ios/com.k-tomoyasu.react-native-oss-license.Ou
 ### Android
 #### license-tools-plugin
 ![license-tools-plugin](screenshots/license-tools-plugin.png)
+
+## Acknowledgment
+This is based on [dart-oss-licenses](https://github.com/ko2ic/dart_oss_licensesA) consepts.  
+And referred [license-list](https://github.com/yami-beta/license-list).
