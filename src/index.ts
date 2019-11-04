@@ -89,7 +89,10 @@ function pkgToLicense(pkg: Package): License {
     return new License(
         pkg.name,
         pkg.version,
+        pkg.description,
         pkg.license,
-        pkg.licenseContent
+        pkg.author,
+        pkg.repository,
+        pkg.licenseContent,
     );
 }
