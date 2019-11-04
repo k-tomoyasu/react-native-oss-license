@@ -21,10 +21,10 @@ function generate() {
     const cmdOpt: CmdOption = {
         rootPath: program.path, 
         includeDevDependencies: program.dev,
-        depth: program.depth || 1
+        depth: program.depth || Infinity
     };
 
-    readInstalled(cmdOpt.rootPath || ".", {dev: cmdOpt.includeDevDependencies, depth: program.depth || 0}, (err: any, pkg: Package) => {
+    readInstalled(cmdOpt.rootPath || ".", {dev: cmdOpt.includeDevDependencies, depth: cmdOpt.depth}, (err: any, pkg: Package) => {
         const licenseList = readDependencies(pkg, new LicenseList({}), cmdOpt);
         console.log(licenseList);
     });
@@ -34,7 +34,7 @@ function readDependencies(pkg: Package, licenseList: LicenseList, opt: CmdOption
     if (pkg.extraneous) return licenseList;
     if (licenseList.exists(pkg.name, pkg.version)) return licenseList;
 
-    const licenseFiles = glob.sync(path.join(pkg.path, '{LICENSE,license}*'));
+    const licenseFiles = glob.sync(path.join(pkg.path, '{LICENSE,License,license}*'));
     if (licenseFiles.length > 0) {
         pkg.licenseFile = fs.readFileSync(licenseFiles[0], 'utf8');
     }
