@@ -38,14 +38,14 @@ function generate():void {
         if (cmdOpt.format) {
             FormatterFactory
                 .create(cmdOpt.format)
-                .format(licenses);
+                .output(licenses);
             return;
         }
 
         Object.values(Format).forEach(format => {
             FormatterFactory
                 .create(format)
-                .format(licenses);
+                .output(licenses);
         });
     }).catch(err => console.error(err));
 }
