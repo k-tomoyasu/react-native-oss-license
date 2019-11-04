@@ -3,7 +3,7 @@ import fs from "fs-extra";
 
 export default class SettingBundlesFormatter implements Formatter {
     output(licenses: License[]): void {
-        const baseName = "com.k-tomoyasu.react-native-oss-licenses";
+        const baseName = "com.k-tomoyasu.react-native-oss-license";
         let licenseListOutput = '';
         licenses.forEach(license => {
             licenseListOutput += `
@@ -15,7 +15,13 @@ export default class SettingBundlesFormatter implements Formatter {
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>            
         </dict>`
-
+            let  licenseContent = license.license;
+            if (license.licenseContent) {
+                licenseContent = license.licenseContent
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;");
+            }
             const licenseOutput = 
 `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -25,7 +31,7 @@ export default class SettingBundlesFormatter implements Formatter {
     <array>
         <dict>
             <key>FooterText</key>
-            <string>${license.licenseContent}</string>
+            <string>${licenseContent}</string>
             <key>Type</key>
             <string>PSGroupSpecifier</string>
         </dict>
