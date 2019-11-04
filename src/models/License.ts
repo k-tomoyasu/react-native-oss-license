@@ -1,18 +1,6 @@
-export default class License {
-    libraryName: string;
-    version: string;
-    license: string;
-    licenseFile?: string;
-
-    constructor(
-        libraryName: string,
-        version: string,
-        license: string,
-        licenseFile?: string,
-    ) {
-        this.libraryName = libraryName;
-        this.version = version;
-        this.license = license;
-        this.licenseFile = licenseFile;
-    }
+type License = {
+    readonly libraryName: string;
+    readonly version: string;
+    readonly license: string;
+    readonly licenseContent?: string;
 }

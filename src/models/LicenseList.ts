@@ -1,5 +1,3 @@
-import License from "./License"
-
 export default class LicenseList {
     private list: {[key:string]: License};
 

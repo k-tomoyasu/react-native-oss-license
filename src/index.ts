@@ -2,7 +2,6 @@ import * as fs from "fs-extra";
 import commander from "commander";
 import glob from "glob";
 import path from "path";
-import License from "./models/License";
 import LicenseList from "./models/LicenseList";
 import FormatterFactory from "./formats/FormatterFactory";
 import Format from "./models/Format";
@@ -58,7 +57,7 @@ function readDependencies(pkg: Package, licenseList: LicenseList, opt: CmdOption
 
     const licenseFiles = glob.sync(path.join(pkg.path, '{LICENSE,License,license}*'));
     if (licenseFiles.length > 0) {
-        pkg.licenseFile = fs.readFileSync(licenseFiles[0], 'utf8');
+        pkg.licenseContent = fs.readFileSync(licenseFiles[0], 'utf8');
     }
     licenseList.add(pkgToLicense(pkg));
 
@@ -71,10 +70,10 @@ function readDependencies(pkg: Package, licenseList: LicenseList, opt: CmdOption
 }
 
 function pkgToLicense(pkg: Package): License {
-    return new License(
-        pkg.name,
-        pkg.version,
-        pkg.license,
-        pkg.licenseFile
-    );
+    return {
+        libraryName: pkg.name,
+        version: pkg.version,
+        license: pkg.license,
+        licenseContent: pkg.licenseContent
+    };
 }

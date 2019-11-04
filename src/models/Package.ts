@@ -3,7 +3,7 @@ type Package = {
     version: string,
     depth: number,
     license: string,
-    licenseFile?: string,
+    licenseContent?: string,
     path: string,
     dependencies: { [key: string]: Package},
     extraneous: boolean
