@@ -47,7 +47,7 @@ function generate():void {
                 .create(format)
                 .format(licenses);
         });
-    });
+    }).catch(err => console.error(err));
 }
 
 function getLicenses(cmdOpt: CmdOption): Promise<License[]> {
