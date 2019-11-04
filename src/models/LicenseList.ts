@@ -16,8 +16,8 @@ export default class LicenseList {
         this.list[key] = license;
     }
 
-    getList(): {[key:string]: License} {
-        return this.list;
+    getList(): License[] {
+        return Object.values(this.list);
     }
 
     private key(libraryName: string, version: string): string {
