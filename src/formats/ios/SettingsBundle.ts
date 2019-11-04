@@ -4,6 +4,7 @@ import fs from "fs-extra";
 export default class SettingBundlesFormatter implements Formatter {
     output(licenses: License[]): void {
         const baseName = "com.k-tomoyasu.react-native-oss-license";
+        const basePath = `${baseName}.Output`;
         let licenseListOutput = '';
         licenses.forEach(license => {
             licenseListOutput += `
@@ -62,7 +63,7 @@ export default class SettingBundlesFormatter implements Formatter {
 </plist>`
 
         fs.outputFile(`${baseName}.Output/${baseName}.plist`, plistOutput)
-                .catch(err => console.error(err));
-        console.log("output SettingBundles");
+            .then(val => console.log(`output SettingBundles format to '${basePath}'`))
+            .catch(err => console.error(err));
     }
 }
