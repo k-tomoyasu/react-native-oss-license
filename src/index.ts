@@ -5,6 +5,7 @@ import path from "path";
 import LicenseList from "./models/LicenseList";
 import FormatterFactory from "./formats/FormatterFactory";
 import Format from "./models/Format";
+import License from "./models/License";
 
 const readInstalled = require("read-installed");
 
@@ -85,10 +86,10 @@ function readDependencies(pkg: Package, licenseList: LicenseList, opt: CmdOption
 }
 
 function pkgToLicense(pkg: Package): License {
-    return {
-        libraryName: pkg.name,
-        version: pkg.version,
-        license: pkg.license,
-        licenseContent: pkg.licenseContent
-    };
+    return new License(
+        pkg.name,
+        pkg.version,
+        pkg.license,
+        pkg.licenseContent
+    );
 }

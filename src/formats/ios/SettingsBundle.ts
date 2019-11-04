@@ -1,5 +1,6 @@
 import Formatter from "../Formatter";
 import fs from "fs-extra";
+import License from "../../models/License";
 
 export default class SettingBundlesFormatter implements Formatter {
     output(licenses: License[]): void {
@@ -16,13 +17,6 @@ export default class SettingBundlesFormatter implements Formatter {
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>            
         </dict>`
-            let  licenseContent = license.license;
-            if (license.licenseContent) {
-                licenseContent = license.licenseContent
-                    .replace(/&/g, "&amp;")
-                    .replace(/</g, "&lt;")
-                    .replace(/>/g, "&gt;");
-            }
             const licenseOutput = 
 `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -32,7 +26,7 @@ export default class SettingBundlesFormatter implements Formatter {
     <array>
         <dict>
             <key>FooterText</key>
-            <string>${licenseContent}</string>
+            <string>${license.licenseContent}</string>
             <key>Type</key>
             <string>PSGroupSpecifier</string>
         </dict>
