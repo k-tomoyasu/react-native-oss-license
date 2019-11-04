@@ -14,16 +14,21 @@
   "author": "k-tomoyasu",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^12.12.5",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.6.4",
-    "yarn": "^1.19.1"
+    "commander": "^4.0.0",
+    "fs-extra": "^8.1.0",
+    "glob": "^7.1.5",
+    "install": "^0.13.0",
+    "path": "^0.12.7",
+    "read-installed": "^4.0.3"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",
-    "commander": "^4.0.0",
-    "fs-extra": "^8.1.0",
+    "@types/glob": "^7.1.1",
+    "@types/node": "^12.12.5",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.6.4",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "yarn": "^1.19.1"
   }
 }
