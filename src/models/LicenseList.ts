@@ -11,7 +11,7 @@ export default class LicenseList {
         return !!this.list[this.key(libraryName, version)];
     }
 
-    add(license: License) {
+    add(license: License): void {
         const key = this.key(license.libraryName, license.version);
         this.list[key] = license;
     }
