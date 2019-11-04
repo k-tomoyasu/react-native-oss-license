@@ -1,6 +1,6 @@
 enum Format {
-    SettingsBunddle = "settingBundles", 
-    LicenseToolsPlugin = "licenseToolsPlugin"
+    SettingsBunddle = "settings-bundle",
+    LicenseToolsPlugin = "license-tools-plugin"
 }
 
 export default Format;

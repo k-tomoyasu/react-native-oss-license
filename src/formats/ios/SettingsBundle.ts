@@ -57,7 +57,7 @@ export default class SettingBundlesFormatter implements Formatter {
 </plist>`
 
         fs.outputFile(`${basePath}/${baseName}.plist`, plistOutput)
-            .then(_ => console.log(`output SettingBundles format to '${basePath}'`))
+            .then(_ => console.log(`output settings-bundle format to '${basePath}'`))
             .catch(err => console.error(err));
     }
 }

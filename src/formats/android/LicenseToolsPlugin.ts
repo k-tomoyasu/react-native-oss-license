@@ -20,7 +20,7 @@ export default class LicenseToolsPluginFormatter implements Formatter {
         });
 
         fs.writeFile(path, "#npm-libraries\n" + YAML.stringify(yamlContent))
-            .then(_ => console.log(`output format LicenseToolsPlugin to '${path}'`))
+            .then(_ => console.log(`output license-tools-plugin format to '${path}'`))
             .catch(e => console.error(e));
     }
 }
