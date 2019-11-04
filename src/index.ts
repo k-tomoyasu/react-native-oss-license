@@ -21,6 +21,10 @@ function generate():void {
         .version("0.0.1", "--version", "show current version")
         .parse(process.argv);
     
+    if (!fs.pathExistsSync("package.json")) {
+        console.error("'package.json' is not exists in current dir.")
+        return;
+    }
     const cmdOpt: CmdOption = {
         includeDevDependencies: program.dev,
         depth: program.depth,
@@ -33,19 +37,14 @@ function generate():void {
             console.log(JSON.stringify(licenses));
             return;
         }
-
         if (cmdOpt.format) {
             FormatterFactory
                 .create(cmdOpt.format)
                 .output(licenses);
             return;
+        } else {
+            console.error("no format specified. use --format option.")
         }
-
-        Object.values(Format).forEach(format => {
-            FormatterFactory
-                .create(format)
-                .output(licenses);
-        });
     }).catch(err => console.error(err));
 }
 

@@ -12,7 +12,7 @@ export default class FormatterFactory {
                 return new LicenseToolsPlugin();
             default: {
                 const validFormats = Object.values(Format);
-                throw new Error(`invalid format [${format}] given. [${validFormats}] are valid`);
+                throw new Error(`invalid format [${format}] given. [${validFormats}] are valid.`);
             }    
         }
     }
