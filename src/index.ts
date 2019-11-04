@@ -17,13 +17,11 @@ function generate():void {
         .version("0.0.1", "--version", "show current version")
         .option("-f, --format <format>", `output format. options:[${Object.values(Format)}]`)
         .option("--dev", "include devDependencies", false)
-        .option("-p, --path <path>", "specify directory path where 'package.json' is located", ".")
         .option("--depth <depth>", "dependencies depth", Infinity)
         .option("--json", "output json to stdout", false)
         .parse(process.argv);
     
     const cmdOpt: CmdOption = {
-        rootPath: program.path, 
         includeDevDependencies: program.dev,
         depth: program.depth,
         format: program.format || null,
@@ -54,7 +52,7 @@ function generate():void {
 function getLicenses(cmdOpt: CmdOption): Promise<License[]> {
     return new Promise<License[]>((resolve, reject) => {
         readInstalled(
-            cmdOpt.rootPath, 
+            ".",
             {dev: cmdOpt.includeDevDependencies, depth: cmdOpt.depth}, 
             (err: any, pkg: Package) => {
                 if (err) {
