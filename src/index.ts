@@ -14,10 +14,9 @@ function generate():void {
     const program = new commander.Command();
     program
         .version("0.0.1", "--version", "show current version")
-        .option("-f, --formats <formats>", "output formats")
+        .option("-f, --format <format>", `output format. options:[${Object.values(Format)}]`)
         .option("--dev", "include devDependencies", false)
         .option("-p, --path <path>", "specify directory path where 'package.json' is located", ".")
-        .option("--dev", "include devDependencies", false)
         .option("--depth <depth>", "dependencies depth", Infinity)
         .option("--json", "output json to stdout", false)
         .parse(process.argv);
@@ -26,6 +25,7 @@ function generate():void {
         rootPath: program.path, 
         includeDevDependencies: program.dev,
         depth: program.depth,
+        format: program.format || null,
         outputJson: program.json
     };
 
@@ -34,6 +34,14 @@ function generate():void {
             console.log(JSON.stringify(licenses));
             return;
         }
+
+        if (cmdOpt.format) {
+            FormatterFactory
+                .create(cmdOpt.format)
+                .format(licenses);
+            return;
+        }
+
         Object.values(Format).forEach(format => {
             FormatterFactory
                 .create(format)
