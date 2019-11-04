@@ -19,15 +19,21 @@ function generate():void {
         .option("-p, --path <path>", "specify directory path where 'package.json' is located", ".")
         .option("--dev", "include devDependencies", false)
         .option("--depth <depth>", "dependencies depth", Infinity)
+        .option("--json", "output json to stdout", false)
         .parse(process.argv);
     
     const cmdOpt: CmdOption = {
         rootPath: program.path, 
         includeDevDependencies: program.dev,
-        depth: program.depth
+        depth: program.depth,
+        outputJson: program.json
     };
 
     getLicenses(cmdOpt).then(licenses => {
+        if(cmdOpt.outputJson) {
+            console.log(JSON.stringify(licenses));
+            return;
+        }
         Object.values(Format).forEach(format => {
             FormatterFactory
                 .create(format)
@@ -52,8 +58,9 @@ function getLicenses(cmdOpt: CmdOption): Promise<License[]> {
 }
 
 function readDependencies(pkg: Package, licenseList: LicenseList, opt: CmdOption): LicenseList {
-    if (pkg.extraneous) return licenseList;
-    if (licenseList.exists(pkg.name, pkg.version)) return licenseList;
+    if (pkg.extraneous || licenseList.exists(pkg.name, pkg.version)) {
+        return licenseList;
+    }
 
     const licenseFiles = glob.sync(path.join(pkg.path, '{LICENSE,License,license}*'));
     if (licenseFiles.length > 0) {
