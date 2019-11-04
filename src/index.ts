@@ -14,11 +14,11 @@ generate();
 function generate():void {
     const program = new commander.Command();
     program
-        .version("0.0.1", "--version", "show current version")
         .option("-f, --format <format>", `output format. options:[${Object.values(Format)}]`)
         .option("--dev", "include devDependencies", false)
         .option("--depth <depth>", "dependencies depth", Infinity)
         .option("--json", "output json to stdout", false)
+        .version("0.0.1", "--version", "show current version")
         .parse(process.argv);
     
     const cmdOpt: CmdOption = {

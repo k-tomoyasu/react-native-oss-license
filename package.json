@@ -10,7 +10,7 @@
     "build:dev": "webpack --mode=development"
   },
   "bin": {
-    "react-native-licenses": "./bin/react-native-licenses.js"
+    "react-native-oss-license": "./bin/react-native-oss-license.js"
   },
   "author": "k-tomoyasu",
   "license": "MIT",
