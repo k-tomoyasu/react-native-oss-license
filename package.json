@@ -20,12 +20,14 @@
     "glob": "^7.1.5",
     "install": "^0.13.0",
     "path": "^0.12.7",
-    "read-installed": "^4.0.3"
+    "read-installed": "^4.0.3",
+    "yaml": "^1.7.2"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",
     "@types/glob": "^7.1.1",
     "@types/node": "^12.12.5",
+    "@types/yaml": "^1.2.0",
     "size-plugin": "^2.0.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.6.4",

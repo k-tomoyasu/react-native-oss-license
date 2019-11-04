@@ -89,6 +89,7 @@ function pkgToLicense(pkg: Package): License {
         pkg.version,
         pkg.description,
         pkg.license,
+        pkg.homepage,
         pkg.author,
         pkg.repository,
         pkg.licenseContent,

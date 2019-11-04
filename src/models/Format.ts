@@ -1,6 +1,6 @@
 enum Format {
     SettingsBunddle = "settingBundles", 
-    AboutLibraries = "aboutLibraries"
+    LicenseToolsPlugin = "licenseToolsPlugin"
 }
 
 export default Format;

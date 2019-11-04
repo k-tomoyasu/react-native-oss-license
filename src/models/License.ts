@@ -4,6 +4,7 @@ export default class License {
         readonly version: string,
         readonly description: string,
         readonly license: string,
+        readonly homepage?: string,
         readonly author?: Author,
         readonly repository?: Repository,
         private _licenseContent?: string

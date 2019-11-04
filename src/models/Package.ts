@@ -1,6 +1,7 @@
 type Package = {
     name: string,
     version: string,
+    homepage?: string,
     author?: Author,
     repository?: Repository,
     description: string,
