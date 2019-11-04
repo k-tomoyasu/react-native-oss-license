@@ -5,7 +5,7 @@ import License from "../../models/License";
 export default class SettingBundlesFormatter implements Formatter {
     output(licenses: License[]): void {
         const baseName = "com.k-tomoyasu.react-native-oss-license";
-        const basePath = `${baseName}.Output`;
+        const basePath = `ios/${baseName}.Output`;
         let licenseListOutput = '';
         licenses.forEach(license => {
             licenseListOutput += `
@@ -34,7 +34,7 @@ export default class SettingBundlesFormatter implements Formatter {
 </dict>            
 </plist>`
 
-            fs.outputFile(`${baseName}.Output/${baseName}/${license.libraryName}.plist`, licenseOutput)
+            fs.outputFile(`${basePath}/${baseName}/${license.libraryName}.plist`, licenseOutput)
                 .catch(err => console.error(err));
         });
 
@@ -56,7 +56,7 @@ export default class SettingBundlesFormatter implements Formatter {
 </dict>
 </plist>`
 
-        fs.outputFile(`${baseName}.Output/${baseName}.plist`, plistOutput)
+        fs.outputFile(`${basePath}/${baseName}.plist`, plistOutput)
             .then(val => console.log(`output SettingBundles format to '${basePath}'`))
             .catch(err => console.error(err));
     }
