@@ -1,5 +1,5 @@
 # react-native-oss-license
-`react-native-oss-license` is **license generator for React Native App(iOS & Android)**.
+`react-native-oss-license` is **license list generator for React Native App(iOS & Android)**.
 This CLI tool allow you to easily generate content of oss-license.
 
 ## Usage
