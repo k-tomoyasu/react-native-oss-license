@@ -16,6 +16,12 @@ It is assumed to be used with other tools.
 It generate license list in YAML format.  
 `react-native-oss-license` generate same format content. You can merge results.
 
+#### AboutLibraries
+[AboutLibraries](https://github.com/mikepenz/AboutLibraries) provides fragment/activity that show license list.  
+`react-native-oss-license` generate string resource xml `AboutLibraries` use.  
+run `react-native-oss-license --format about-libraries`, output strings.xml that you can put into `res/values/`.  
+and output stdout `withLibraries("package_name_A", "package_name_B" ...)` that pass to method `withLibraries`.
+
 ### CLI
 ```sh
 > cd {project-root}
@@ -23,7 +29,7 @@ It generate license list in YAML format.
 Usage: react-native-oss-license [options]
 
 Options:
-  -f, --format <format>  output format. options:[settings-undle,license-tools-plugin]
+  -f, --format <format>  output format. options:[settings-bundle,license-tools-plugin, about-libraries]
   --dev                  include devDependencies (default: false)
   --depth <depth>        dependencies depth (default: null)
   --json                 output json to stdout (default: false)
@@ -42,6 +48,9 @@ output settings-bundle format to 'ios/com.k-tomoyasu.react-native-oss-license.Ou
 ### Android
 #### license-tools-plugin
 ![license-tools-plugin](screenshots/license-tools-plugin.png)
+
+#### AboutLibraries
+![about-libraries](screenshots/about-libraries.png)
 
 ## Acknowledgment
 This is based on [dart-oss-licenses](https://github.com/ko2ic/dart_oss_licensesA) consepts.  
