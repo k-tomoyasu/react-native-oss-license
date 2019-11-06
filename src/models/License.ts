@@ -2,13 +2,27 @@ export default class License {
     constructor(
         readonly libraryName: string,
         readonly version: string,
-        readonly description: string,
-        readonly license: string,
+        readonly _license: string | LicenseData,
+        private _description?: string,
         readonly homepage?: string,
         readonly author?: Author,
         readonly repository?: Repository,
         private _licenseContent?: string
-    ){}
+    ) { }
+
+    get description(): string {
+        return this._description || "";
+    }
+
+    get license(): string {
+        if (typeof this._license == "string") {
+            return this._license; 
+        }
+        if (typeof this._license == "object") {
+            return this._license.type;
+        }
+        return "";
+    }
 
     get authorName(): string {
         return this.author && this.author.name || "unknown";

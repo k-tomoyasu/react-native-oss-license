@@ -27,9 +27,9 @@ function pkgToLicense(pkg: Package): License {
     return new License(
         pkg.name,
         pkg.version,
-        pkg.description,
         pkg.license,
         pkg.homepage,
+        pkg.description,
         pkg.author,
         pkg.repository,
         pkg.licenseContent,

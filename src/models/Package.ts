@@ -4,8 +4,8 @@ type Package = {
     homepage?: string,
     author?: Author,
     repository?: Repository,
-    description: string,
-    license: string,
+    description?: string,
+    license: string | LicenseData,
     licenseContent?: string,
     path: string,
     realPath: string,
@@ -23,4 +23,9 @@ type Author = {
     name?: string,
     email?: string,
     url?: string
+}
+
+type LicenseData = {
+    type: string,
+    url: string
 }
