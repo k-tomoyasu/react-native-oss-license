@@ -3,6 +3,7 @@ import FormatterFactory from "./formatter/FormatterFactory";
 import readPackages from "./reader/PackageReader";
 import validateOption from "./cmd/CommandValidator";
 import LicenseCommand from "./cmd/LicenseCommand";
+import commander = require("commander");
 
 generate();
 
@@ -11,7 +12,8 @@ function generate():void {
         console.error("'package.json' is not exists in current dir.")
         return;
     }
-    const cmdOpt = new LicenseCommand().parse(process.argv);
+    const command = new LicenseCommand(new commander.Command());
+    const cmdOpt = command.parse(process.argv);
 
     const [validOpt, messge] = validateOption(cmdOpt);
     if (!validOpt) {

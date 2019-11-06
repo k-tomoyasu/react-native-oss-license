@@ -2,8 +2,7 @@ import commander, { Command } from "commander"
 import Format from "../models/Format";
 
 export default class LicenseCommand {
-    private program: Command
-    constructor() {
+    constructor(private program: Command) {
         this.program = new commander.Command()
             .option("-f, --format <format>", `output format. options:[${Object.values(Format)}]`)
             .option("--dev", "include devDependencies", false)
