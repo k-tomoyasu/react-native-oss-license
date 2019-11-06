@@ -1,6 +1,5 @@
 import Formatter from "../Formatter";
 import License from "../../models/License";
-import fs from "fs-extra";
 
 export default class AboutLibraries implements Formatter {
 

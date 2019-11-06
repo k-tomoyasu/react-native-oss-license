@@ -1,5 +1,4 @@
 import Formatter from "../Formatter";
-import fs from "fs-extra";
 import License from "../../models/License";
 
 const baseName = "com.k-tomoyasu.react-native-oss-license";

@@ -1,7 +1,6 @@
 import Formatter from "../Formatter";
 import License from "../../models/License";
 import YAML from "yaml";
-import fs from "fs-extra";
 
 export default class LicenseToolsPluginFormatter implements Formatter {
 
