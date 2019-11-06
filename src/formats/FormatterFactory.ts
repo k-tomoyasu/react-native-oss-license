@@ -3,7 +3,6 @@ import SettingsBundle, { SettingBundlesDetailFormatter } from "./ios/SettingsBun
 import LicenseToolsPlugin from "./android/LicenseToolsPlugin"
 import Format from "../models/Format";
 import AboutLibraries from "./android/AboutLibraries";
-import { CmdOption } from "../models/CmdOption";
 import FileWriter from "../writer/FileWriter";
 
 export default class FormatterFactory {

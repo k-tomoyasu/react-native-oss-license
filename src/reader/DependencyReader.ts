@@ -3,7 +3,6 @@ import glob from "glob";
 import path from "path";
 import LicenseList from "../models/LicenseList";
 import License from "../models/License";
-import { CmdOption } from "../models/CmdOption";
 
 export default function walkDependencies(pkg: Package, licenseList: LicenseList, opt: CmdOption): LicenseList {
     if (pkg.extraneous || licenseList.exists(pkg.name, pkg.version)) {

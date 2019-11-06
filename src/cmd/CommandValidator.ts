@@ -1,5 +1,4 @@
 import Format from "../models/Format";
-import { CmdOption } from "../models/CmdOption";
 
 export default function validateOption(cmdOpt: CmdOption): [boolean, string | null] {
     if (cmdOpt.format && !Format.validFormatName(cmdOpt.format)) {
