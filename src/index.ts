@@ -34,13 +34,13 @@ function generate():void {
         outputPath: program.outputPath
     };
 
+    if (!cmdOpt.format && !cmdOpt.outputJson) {
+        console.error("no format specified. use --format option.")
+        return;
+    }
     getLicenses(cmdOpt).then(licenses => {
         if(cmdOpt.outputJson) {
             console.log(JSON.stringify(licenses));
-            return;
-        }
-        if (!cmdOpt.format) {
-            console.error("no format specified. use --format option.")
             return;
         }
         FormatterFactory
