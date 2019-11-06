@@ -5,7 +5,7 @@ import fs from "fs-extra";
 
 export default class LicenseToolsPluginFormatter implements Formatter {
 
-    constructor(private opt: LicenseToolsPluginOption) {}
+    constructor(private opt: LicenseToolsPluginOption, private writer: Writer) {}
 
     output(licenses: License[]): void {
         const path = this.opt.outputPath || "android/app/licenses-npm.yml";
@@ -22,7 +22,7 @@ export default class LicenseToolsPluginFormatter implements Formatter {
             yamlContent.push(elm);
         });
 
-        fs.outputFile(path, "#npm-libraries\n" + YAML.stringify(yamlContent))
+        this.writer.write(path, "#npm-libraries\n" + YAML.stringify(yamlContent))
             .then(_ => console.log(`output license-tools-plugin format to '${path}'`))
             .catch(e => console.error(e));
     }

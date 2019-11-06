@@ -4,7 +4,7 @@ import fs from "fs-extra";
 
 export default class AboutLibraries implements Formatter {
 
-    constructor(private opt: AboutLibrariesOption) {}
+    constructor(private opt: AboutLibrariesOption, private writer: Writer) {}
 
     output(licenses: License[]): void {
         const path = this.opt.outputPath || "android/app/src/main/res/values/license_npm_libs_strings.xml";
@@ -45,7 +45,7 @@ export default class AboutLibraries implements Formatter {
     ${licenseContent}
 </resources>`;
 
-        fs.outputFile(path, content)
+        this.writer.write(path, content)
             .then(_ => console.log(`output about-libraries format to '${path}'.\nwithLibraries(${libraryNameList.join(",")})`))
             .catch(e => console.error(e));
     }
