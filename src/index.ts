@@ -38,6 +38,10 @@ function generate():void {
         console.error("no format specified. use --format option.")
         return;
     }
+    if (!Format.validFormatName(cmdOpt.format!)) {
+        console.error(`invalid format name given. [${Format.getValidFormats()}] are supported.`)
+        return;
+    }
     getLicenses(cmdOpt).then(licenses => {
         if(cmdOpt.outputJson) {
             console.log(JSON.stringify(licenses));
