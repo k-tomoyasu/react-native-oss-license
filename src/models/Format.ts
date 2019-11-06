@@ -9,8 +9,9 @@ namespace Format {
         const validFormatNames = getValidFormats();
         return validFormatNames.indexOf(formatName) > 0;
     }
-    export function getValidFormats():string[] {
-        return Object.values(Format) as string[];
+    
+    export function getValidFormats(): string[] {
+        return Object.values(Format).filter(prop => typeof prop != "function") as string[];
     }
 }
 
