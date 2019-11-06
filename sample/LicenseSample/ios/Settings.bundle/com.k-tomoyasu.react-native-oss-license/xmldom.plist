@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PreferenceSpecifiers</key>
+    <array>
+        <dict>
+            <key>FooterText</key>
+            <string>You can choose any one of those:
+
+The MIT License (MIT):
+
+link:http://opensource.org/licenses/MIT
+
+LGPL:
+http://www.gnu.org/licenses/lgpl.html
+</string>
+            <key>Type</key>
+            <string>PSGroupSpecifier</string>
+        </dict>
+    </array>
+</dict>            
+</plist>
