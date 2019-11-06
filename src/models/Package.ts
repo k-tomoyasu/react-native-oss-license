@@ -8,7 +8,9 @@ type Package = {
     license: string,
     licenseContent?: string,
     path: string,
-    dependencies: { [key: string]: Package},
+    realPath: string,
+    depth: number,
+    dependencies?: { [key: string]: Package},
     extraneous: boolean
 }
 
