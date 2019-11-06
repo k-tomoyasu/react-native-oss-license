@@ -1,7 +1,7 @@
 type CmdOption = {
-    includeDevDependencies: boolean,
-    depth: number,
-    format: string | null,
-    outputJson: boolean,
-    outputPath: string | null
+    readonly includeDevDependencies: boolean,
+    readonly depth: number,
+    readonly format: string | null,
+    readonly outputJson: boolean,
+    readonly outputPath: string | null
 }

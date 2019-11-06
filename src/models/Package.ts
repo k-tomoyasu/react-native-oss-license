@@ -1,28 +1,28 @@
 type Package = {
-    name: string,
-    version: string,
-    homepage?: string,
-    author?: Author,
-    repository?: Repository,
-    description?: string,
-    license: string | LicenseData,
+    readonly name: string,
+    readonly version: string,
+    readonly homepage?: string,
+    readonly author?: Author,
+    readonly repository?: Repository,
+    readonly description?: string,
+    readonly license: string | LicenseData,
+    readonly path: string,
+    readonly realPath: string,
+    readonly depth: number,
+    readonly dependencies?: { [key: string]: Package},
+    readonly extraneous: boolean
     licenseContent?: string,
-    path: string,
-    realPath: string,
-    depth: number,
-    dependencies?: { [key: string]: Package},
-    extraneous: boolean
 }
 
 type Repository = {
-    url?: string,
-    type?: string
+    readonly url?: string,
+    readonly type?: string
 }
 
 type Author = {
-    name?: string,
-    email?: string,
-    url?: string
+    readonly name?: string,
+    readonly email?: string,
+    readonly url?: string
 }
 
 type LicenseData = {

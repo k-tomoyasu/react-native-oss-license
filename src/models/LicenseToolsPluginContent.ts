@@ -1,8 +1,8 @@
 type LicenseToolsPluginContent = {
-    artifact: string
-    name: string
-    license: string
-    url: string | null
-    authors: string[]
-    forceGenerate: boolean
+    readonly artifact: string
+    readonly name: string
+    readonly license: string
+    readonly url: string | null
+    readonly authors: string[]
+    readonly forceGenerate: boolean
 }

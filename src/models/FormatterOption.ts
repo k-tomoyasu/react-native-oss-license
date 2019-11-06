@@ -1,5 +1,5 @@
 type FormatterOption = {
-    outputPath: string | null
+    readonly outputPath: string | null
 };
 
 type SettingsBundleOption = {} & FormatterOption
