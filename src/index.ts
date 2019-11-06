@@ -17,6 +17,7 @@ function generate():void {
         .option("-f, --format <format>", `output format. options:[${Object.values(Format)}]`)
         .option("--dev", "include devDependencies", false)
         .option("--depth <depth>", "dependencies depth", Infinity)
+        .option("--output-path <outputPath>", "specify path where output file")
         .option("--json", "output json to stdout", false)
         .version("0.0.1", "--version", "show current version")
         .parse(process.argv);
@@ -29,7 +30,8 @@ function generate():void {
         includeDevDependencies: program.dev,
         depth: program.depth,
         format: program.format || null,
-        outputJson: program.json
+        outputJson: program.json,
+        outputPath: program.outputPath
     };
 
     getLicenses(cmdOpt).then(licenses => {
@@ -37,14 +39,14 @@ function generate():void {
             console.log(JSON.stringify(licenses));
             return;
         }
-        if (cmdOpt.format) {
-            FormatterFactory
-                .create(cmdOpt.format)
-                .output(licenses);
-            return;
-        } else {
+        if (!cmdOpt.format) {
             console.error("no format specified. use --format option.")
+            return;
         }
+        FormatterFactory
+            .create(cmdOpt)
+            .output(licenses);
+        return;
     }).catch(err => console.error(err));
 }
 

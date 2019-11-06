@@ -2,9 +2,12 @@ import Formatter from "../Formatter";
 import License from "../../models/License";
 import fs from "fs-extra";
 
-export default class AboutLicenses implements Formatter {
+export default class AboutLibraries implements Formatter {
+
+    constructor(private opt: AboutLibrariesOption) {}
+
     output(licenses: License[]): void {
-        const path = "android/app/src/main/res/values/license_npm_libs_strings.xml"
+        const path = this.opt.outputPath || "android/app/src/main/res/values/license_npm_libs_strings.xml";
         let licenseContent = "";
         let libraryNameList: string[] = [];
         licenses.forEach(license => {

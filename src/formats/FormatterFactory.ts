@@ -5,17 +5,17 @@ import Format from "../models/Format";
 import AboutLibraries from "./android/AboutLibraries";
 
 export default class FormatterFactory {
-    static create(format: string): Formatter {
-        switch(format) {
+    static create(opt: CmdOption): Formatter {
+        switch(opt.format) {
             case Format.SettingsBunddle:
-                return new SettingsBundle();
+                return new SettingsBundle(opt);
             case Format.LicenseToolsPlugin:
-                return new LicenseToolsPlugin();
+                return new LicenseToolsPlugin(opt);
             case Format.AboutLibraries:
-                return new AboutLibraries();
+                return new AboutLibraries(opt);
             default: {
                 const validFormats = Object.values(Format);
-                throw new Error(`invalid format [${format}] given. [${validFormats}] are valid.`);
+                throw new Error(`invalid format [${opt.format}] given. [${validFormats}] are valid.`);
             }    
         }
     }

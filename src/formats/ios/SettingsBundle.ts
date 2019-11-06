@@ -3,9 +3,12 @@ import fs from "fs-extra";
 import License from "../../models/License";
 
 export default class SettingBundlesFormatter implements Formatter {
+
+    constructor(private opt: SettingsBundleOption) {}
+    
     output(licenses: License[]): void {
         const baseName = "com.k-tomoyasu.react-native-oss-license";
-        const basePath = `ios/${baseName}.Output`;
+        const basePath = this.opt.outputPath || `ios/${baseName}.Output`;
         let licenseListOutput = '';
         licenses.forEach(license => {
             licenseListOutput += `

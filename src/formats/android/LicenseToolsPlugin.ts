@@ -4,8 +4,11 @@ import YAML from "yaml";
 import fs from "fs-extra";
 
 export default class LicenseToolsPluginFormatter implements Formatter {
+
+    constructor(private opt: LicenseToolsPluginOption) {}
+
     output(licenses: License[]): void {
-        const path = "android/app/licenses-npm.yml"
+        const path = this.opt.outputPath || "android/app/licenses-npm.yml";
         let yamlContent: LicenseToolsPluginContent[] = [];
         licenses.forEach(license => {
             const elm: LicenseToolsPluginContent = {

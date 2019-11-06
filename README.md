@@ -29,12 +29,13 @@ and output stdout `withLibraries("package_name_A", "package_name_B" ...)` that p
 Usage: react-native-oss-license [options]
 
 Options:
-  -f, --format <format>  output format. options:[settings-bundle,license-tools-plugin, about-libraries]
-  --dev                  include devDependencies (default: false)
-  --depth <depth>        dependencies depth (default: null)
-  --json                 output json to stdout (default: false)
-  --version              show current version
-  -h, --help             output usage information
+  -f, --format <format>       require output format. options:[settings-bundle,license-tools-plugin,about-libraries]
+  --dev                       include devDependencies (default: false)
+  --depth <depth>             dependencies depth (default: null)
+  --output-path <outputPath>  specify path where output file (default: "default path")
+  --json                      output json to stdout (default: false)
+  --version                   show current version
+  -h, --help                  output usage information
 
 > react-native-oss-license --format settings-bundle
 output settings-bundle format to 'ios/com.k-tomoyasu.react-native-oss-license.Output'
