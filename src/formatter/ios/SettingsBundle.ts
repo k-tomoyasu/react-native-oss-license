@@ -10,7 +10,7 @@ export default class SettingBundlesFormatter implements Formatter {
     output(licenses: License[]): void {
         const basePath = this.opt.outputPath || `ios/${baseName}.Output`;
         let licenseListContent = this.detailFormatter.outputDetail(licenses, basePath);
-        const plistContent = 
+        const plist = 
 `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -28,7 +28,7 @@ export default class SettingBundlesFormatter implements Formatter {
 </dict>
 </plist>`
 
-        this.writer.write(`${basePath}/${baseName}.plist`, plistContent)
+        this.writer.write(`${basePath}/${baseName}.plist`, plist)
             .then(_ => console.log(`output settings-bundle format to '${basePath}'`))
             .catch(err => console.error(err));
     }
@@ -48,7 +48,7 @@ export class SettingBundlesDetailFormatter {
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>            
         </dict>`
-            const licenseOutput = 
+            const detailPlist = 
 `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -65,7 +65,7 @@ export class SettingBundlesDetailFormatter {
 </dict>            
 </plist>`
 
-            this.writer.write(`${basePath}/${baseName}/${license.libraryName}.plist`, licenseOutput)
+            this.writer.write(`${basePath}/${baseName}/${license.libraryName}.plist`, detailPlist)
                 .catch(err => console.error(err));
         });
 

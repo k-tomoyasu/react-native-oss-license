@@ -38,13 +38,13 @@ export default class AboutLibraries implements Formatter {
             licenseContent += libraryDetail + this.getLicenseDetail(libraryName, license);
         });
 
-        const content = 
+        const resourceXml = 
 `<?xml version="1.0" encoding="utf-8"?>
 <resources>
     ${licenseContent}
 </resources>`;
 
-        this.writer.write(path, content)
+        this.writer.write(path, resourceXml)
             .then(_ => console.log(`output about-libraries format to '${path}'.\nwithLibraries(${libraryNameList.join(",")})`))
             .catch(e => console.error(e));
     }

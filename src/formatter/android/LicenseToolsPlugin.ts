@@ -8,7 +8,7 @@ export default class LicenseToolsPluginFormatter implements Formatter {
 
     output(licenses: License[]): void {
         const path = this.opt.outputPath || "android/app/licenses-npm.yml";
-        let yamlContent: LicenseToolsPluginContent[] = [];
+        let licenseYaml: LicenseToolsPluginContent[] = [];
         licenses.forEach(license => {
             const elm: LicenseToolsPluginContent = {
                 artifact: `npm:${license.libraryName}:${license.version}`,
@@ -18,10 +18,10 @@ export default class LicenseToolsPluginFormatter implements Formatter {
                 authors: [license.author && license.author.name || "unknown"],
                 forceGenerate: true
             };
-            yamlContent.push(elm);
+            licenseYaml.push(elm);
         });
 
-        this.writer.write(path, "#npm-libraries\n" + YAML.stringify(yamlContent))
+        this.writer.write(path, "#npm-libraries\n" + YAML.stringify(licenseYaml))
             .then(_ => console.log(`output license-tools-plugin format to '${path}'`))
             .catch(e => console.error(e));
     }
