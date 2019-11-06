@@ -1,5 +1,5 @@
 import * as fs from "fs-extra";
-import FormatterFactory from "./formats/FormatterFactory";
+import FormatterFactory from "./formatter/FormatterFactory";
 import readPackages from "./reader/PackageReader";
 import validateOption from "./cmd/CommandValidator";
 import LicenseCommand from "./cmd/LicenseCommand";
