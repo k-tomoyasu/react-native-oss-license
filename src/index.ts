@@ -4,6 +4,7 @@ import FormatterFactory from "./formats/FormatterFactory";
 import Format from "./models/Format";
 import readPackages from "./reader/PackageReader";
 import validateOption from "./cmd/CommandValidator";
+import { toCmdOption } from "./models/CmdOption";
 
 generate();
 
@@ -38,14 +39,4 @@ function generate():void {
             .create(cmdOpt)
             .output(licenses);
     }).catch(err => console.error(err));
-}
-
-function toCmdOption(command: Command): CmdOption {
-    return {
-        includeDevDependencies: command.dev,
-        depth: command.depth,
-        format: command.format || null,
-        outputJson: command.json,
-        outputPath: command.outputPath
-    };
 }

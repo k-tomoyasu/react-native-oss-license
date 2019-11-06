@@ -1,6 +1,7 @@
 import License from "../models/License";
 import LicenseList from "../models/LicenseList";
 import walkDependencies from "./DependencyReader";
+import { CmdOption } from "../models/CmdOption";
 
 const readInstalled = require("read-installed");
 

@@ -6,10 +6,9 @@ enum Format {
 
 namespace Format {
     export function validFormatName(formatName: string): boolean {
-        const validFormatNames = getValidFormats();
-        return validFormatNames.indexOf(formatName) > 0;
+        return getValidFormats().indexOf(formatName) >= 0;
     }
-    
+
     export function getValidFormats(): string[] {
         return Object.values(Format).filter(prop => typeof prop != "function") as string[];
     }

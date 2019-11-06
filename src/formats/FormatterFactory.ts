@@ -3,6 +3,7 @@ import SettingsBundle from "./ios/SettingsBundle"
 import LicenseToolsPlugin from "./android/LicenseToolsPlugin"
 import Format from "../models/Format";
 import AboutLibraries from "./android/AboutLibraries";
+import { CmdOption } from "../models/CmdOption";
 
 export default class FormatterFactory {
     static create(opt: CmdOption): Formatter {
