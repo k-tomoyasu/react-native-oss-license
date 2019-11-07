@@ -42,9 +42,9 @@ export class SettingBundlesDetailFormatter {
             licenseListContent += `
         <dict>
             <key>File</key>
-            <string>${baseName}/${license.libraryName}</string>
+            <string>${baseName}/${license.libraryName}_${license.version}</string>
             <key>Title</key>
-            <string>${license.libraryName}</string>
+            <string>${license.libraryName}(${license.version})</string>
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>            
         </dict>`
@@ -65,8 +65,9 @@ export class SettingBundlesDetailFormatter {
 </dict>            
 </plist>`
 
-            this.writer.write(`${basePath}/${baseName}/${license.libraryName}.plist`, detailPlist)
-                .catch(err => console.error(err));
+        this.writer
+            .write(`${basePath}/${baseName}/${license.libraryName}_${license.version}.plist`, detailPlist)
+            .catch(err => console.error(err));
         });
 
         return licenseListContent;
