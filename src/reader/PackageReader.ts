@@ -1,10 +1,13 @@
 import License from "../models/License";
 import LicenseList from "../models/LicenseList";
 import walkDependencies from "./DependencyReader";
+import fs from "fs-extra";
 
 const readInstalled = require("read-installed");
 
 export default function readPackages(cmdOpt: CmdOption): Promise<License[]> {
+    const packageJson = JSON.parse(fs.readFileSync("package.json", "utf8"));
+    
     return new Promise<License[]>((resolve, reject) => {
         const inputPath = ".";
         readInstalled(
@@ -14,7 +17,7 @@ export default function readPackages(cmdOpt: CmdOption): Promise<License[]> {
                 if (err) {
                     reject(err);
                 }
-                const licenseList = walkDependencies(pkg, new LicenseList({}), cmdOpt);
+                const licenseList = walkDependencies(pkg, new LicenseList({}), cmdOpt, Object.keys(packageJson.dependencies));
                 resolve(licenseList.getList());
             }
         );

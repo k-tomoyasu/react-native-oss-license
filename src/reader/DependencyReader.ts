@@ -4,11 +4,13 @@ import path from "path";
 import LicenseList from "../models/LicenseList";
 import License from "../models/License";
 
-export default function walkDependencies(pkg: Package, licenseList: LicenseList, opt: CmdOption): LicenseList {
+export default function walkDependencies(pkg: Package, licenseList: LicenseList, opt: CmdOption, directDependencies: string[]): LicenseList {
     if (!pkg.dependencies || pkg.extraneous || licenseList.exists(pkg.name, pkg.version)) {
         return licenseList;
     }
     if (pkg.depth > 0) {
+        const isDirectDependency = directDependencies.indexOf(pkg.name) >= 0;
+        if (opt.onlyDirectDependency && !isDirectDependency) return licenseList;
         const licenseFiles = glob.sync(path.join(pkg.path, '{LICENSE,License,license}*'));
         if (licenseFiles.length > 0) {
             pkg.licenseContent = fs.readFileSync(licenseFiles[0], 'utf8');
@@ -18,7 +20,7 @@ export default function walkDependencies(pkg: Package, licenseList: LicenseList,
     Object.keys(pkg.dependencies).forEach(objKey => {
         if (!pkg.dependencies) return;
         const dep = pkg.dependencies[objKey]
-        licenseList = walkDependencies(dep, licenseList, opt);
+        licenseList = walkDependencies(dep, licenseList, opt, directDependencies);
     });
     return licenseList;
 }
@@ -28,8 +30,8 @@ function pkgToLicense(pkg: Package): License {
         pkg.name,
         pkg.version,
         pkg.license,
-        pkg.homepage,
         pkg.description,
+        pkg.homepage,
         pkg.author,
         pkg.repository,
         pkg.licenseContent,
