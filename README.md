@@ -34,6 +34,7 @@ Options:
   --depth <depth>             dependencies depth (default: null)
   --output-path <outputPath>  specify path where output file (default: "default path")
   --json                      output json to stdout (default: false)
+  --only-direct-dependency    output only dependencies you write packages.json. (default: false)
   --version                   show current version
   -h, --help                  output usage information
 
