@@ -17,7 +17,7 @@ export default class FormatterFactory {
             case Format.AboutLibraries:
                 return new AboutLibraries(opt, new FileWriter());
             default: {
-                throw new Error(`invalid format [${opt.format}] given. [${Format.getValidFormats()}] are valid.`);
+                throw new Error(`invalid format [${opt.format}] given. [${Format.getSupportedFormats()}] are valid.`);
             }    
         }
     }

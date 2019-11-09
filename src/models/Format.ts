@@ -5,11 +5,11 @@ enum Format {
 }
 
 namespace Format {
-    export function validFormatName(formatName: string): boolean {
-        return getValidFormats().indexOf(formatName) >= 0;
+    export function isSupportedFormat(formatName: string): boolean {
+        return getSupportedFormats().indexOf(formatName) >= 0;
     }
 
-    export function getValidFormats(): string[] {
+    export function getSupportedFormats(): string[] {
         return Object.values(Format).filter(prop => typeof prop != "function") as string[];
     }
 }

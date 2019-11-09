@@ -4,7 +4,7 @@ import Format from "../models/Format";
 export default class LicenseCommand {
     constructor(private program: Command) {
         this.program
-            .option("-f, --format <format>", `output format. options:[${Format.getValidFormats()}]`)
+            .option("-f, --format <format>", `output format. options:[${Format.getSupportedFormats()}]`)
             .option("--dev", "include devDependencies", false)
             .option("--depth <depth>", "dependencies depth", Infinity)
             .option("--output-path <outputPath>", "specify path where output file")
