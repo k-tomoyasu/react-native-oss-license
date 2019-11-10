@@ -3,7 +3,7 @@ import FormatterFactory from './formatter/FormatterFactory'
 import readPackages from './reader/PackageReader'
 import validateOption from './cmd/CommandValidator'
 import LicenseCommand from './cmd/LicenseCommand'
-import commander = require('commander')
+import commander from 'commander'
 
 function main(): void {
   if (!fs.pathExistsSync('package.json')) {
