@@ -5,7 +5,5 @@ const SizePlugin = require('size-plugin');
 module.exports = merge(base, {
   mode: 'development',
   devtool: 'inline-source-map',
-  plugins: [
-    new SizePlugin()
-  ]
+  plugins: [new SizePlugin()]
 });

@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:prod": "webpack --mode=production",
-    "build:dev": "webpack --mode=development"
+    "build:dev": "webpack --mode=development",
+    "lint": "eslint 'src/**/*.ts'",
+    "lint:fix": "eslint 'src/**/*.ts' --fix"
   },
   "bin": {
     "react-native-oss-license": "./bin/react-native-oss-license.js"
@@ -14,8 +16,8 @@
   "author": "k-tomoyasu",
   "license": "MIT",
   "keywords": [
-      "react-native",
-      "license"
+    "react-native",
+    "license"
   ],
   "dependencies": {
     "commander": "^4.0.0",
@@ -31,6 +33,12 @@
     "@types/glob": "^7.1.1",
     "@types/node": "^12.12.5",
     "@types/yaml": "^1.2.0",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.19.1",
     "size-plugin": "^2.0.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.6.4",

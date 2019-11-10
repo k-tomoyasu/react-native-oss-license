@@ -1,5 +1,5 @@
-import License from "../models/License";
+import License from '../models/License'
 
 export default interface Formatter {
-    output(licenses: License[]): void
+  output(licenses: License[]): void
 }
