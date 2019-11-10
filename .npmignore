@@ -6,3 +6,5 @@ webpack.dev.js
 webpack.config.js
 yarn.lock
 yarn-error.log
+.prettierrc
+.eslintrc.json
