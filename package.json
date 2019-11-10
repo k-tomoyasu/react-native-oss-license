@@ -13,6 +13,10 @@
   },
   "author": "k-tomoyasu",
   "license": "MIT",
+  "keywords": [
+      "react-native",
+      "license"
+  ],
   "dependencies": {
     "commander": "^4.0.0",
     "fs-extra": "^8.1.0",
