@@ -3,6 +3,7 @@ import LicenseList from '../models/LicenseList'
 import walkDependencies from './DependencyReader'
 import fs from 'fs-extra'
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const readInstalled = require('read-installed')
 
 export default function readPackages(cmdOpt: CmdOption): Promise<License[]> {
