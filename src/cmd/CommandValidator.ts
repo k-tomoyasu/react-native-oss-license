@@ -11,7 +11,7 @@ export default function validateOption(
   } else if (!cmdOpt.format && !cmdOpt.outputJson) {
     return [
       false,
-      `output format is not specified. use --format or --json option.`
+      `output format is not specified. use --format or --json option. "react-native-oss-license help" for detail.`
     ]
   }
 
