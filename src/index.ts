@@ -6,16 +6,17 @@ import LicenseCommand from './cmd/LicenseCommand'
 import commander from 'commander'
 
 function main(): void {
-  if (!fs.pathExistsSync('package.json')) {
-    console.error("'package.json' is not exists in current dir.")
-    return
-  }
   const command = new LicenseCommand(new commander.Command())
   const cmdOpt = command.parse(process.argv)
 
   const [validOpt, messge] = validateOption(cmdOpt)
   if (!validOpt) {
     console.error(messge)
+    return
+  }
+
+  if (!fs.pathExistsSync('package.json')) {
+    console.error("'package.json' is not exists in current dir.")
     return
   }
 
