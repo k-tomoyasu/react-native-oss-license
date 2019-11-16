@@ -5,6 +5,8 @@ This CLI tool allow you to easily generate content of oss-license.
 ## Installation
 `npm i -g react-native-oss-license`
 
+## [Sample App](https://github.com/k-tomoyasu/react-native-oss-license/tree/master/sample/) 
+
 ## Usage
 ### iOS
 `react-native-oss-license` generate `plist` that you can locate to `Settings.bundle`.  
