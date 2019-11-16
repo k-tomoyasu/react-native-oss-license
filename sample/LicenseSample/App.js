@@ -15,6 +15,7 @@ import {
   Text,
   StatusBar,
   Platform,
+  Linking
 } from 'react-native';
 
 import {
@@ -26,7 +27,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const App: () => React$Node = () => {
-  const isAndroid = Platform.OS;
+  const isAndroid = Platform.OS == 'android';
+  const openLicenseLink = () => Linking.openURL('https://k-tomoyasu.github.io/react-native-oss-license/')
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -41,9 +43,12 @@ const App: () => React$Node = () => {
             </View>
           )}
           <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>License List</Text>
-            </View>
+          { isAndroid ? (
+              <View style={styles.sectionContainer}>
+                <Text style={styles.sectionTitle} onPress={openLicenseLink}> License List</Text>
+              </View>
+            ) : ''
+          }
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
