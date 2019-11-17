@@ -17,3 +17,5 @@ merged [licenses-npm.yml](LicenseSample/android/app/licenses-npm.yml)(generated 
 - [linceses.html](LicenseSample/android/app/src/main/assets/licenses.html)
 generated license page
 (hosted by GitHub Pages `https://k-tomoyasu.github.io/react-native-oss-license/`)
+- [App.js](LicenseSample/App.js)
+link to license page
