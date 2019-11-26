@@ -1,6 +1,5 @@
 import Formatter from '../Formatter'
 import License from '../../models/License'
-import { listenerCount } from 'cluster'
 
 export default class AboutLibraries implements Formatter {
   constructor(private opt: AboutLibrariesOption, private writer: Writer) {}
