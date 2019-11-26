@@ -24,7 +24,7 @@ export default function readPackages(cmdOpt: CmdOption): Promise<License[]> {
         }
         const licenseList = walkDependencies(
           pkg,
-          new LicenseList({}),
+          new LicenseList({}, cmdOpt),
           cmdOpt,
           directDependencies
         )

@@ -15,7 +15,7 @@ export default class FormatterFactory {
         return new SettingsBundle(
           opt,
           writer,
-          new SettingBundlesDetailFormatter(writer)
+          new SettingBundlesDetailFormatter(writer, opt)
         )
       case Format.LicenseToolsPlugin:
         return new LicenseToolsPlugin(opt, writer)

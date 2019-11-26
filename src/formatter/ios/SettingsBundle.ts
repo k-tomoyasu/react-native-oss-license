@@ -41,16 +41,19 @@ export default class SettingBundlesFormatter implements Formatter {
 }
 
 export class SettingBundlesDetailFormatter {
-  constructor(private writer: Writer) {}
+  constructor(private writer: Writer, private opt: SettingsBundleOption) {}
   outputDetail(licenses: License[], basePath: string): string {
     let licenseListContent = ''
     licenses.forEach(license => {
+      const libraryName = this.opt.addVersionNumber
+        ? `${license.libraryName}(${license.version})`
+        : license.libraryName
       licenseListContent += `
         <dict>
             <key>File</key>
-            <string>${baseName}/${license.libraryName}_${license.version}</string>
+            <string>${baseName}/${libraryName}</string>
             <key>Title</key>
-            <string>${license.libraryName}(${license.version})</string>
+            <string>${libraryName}</string>
             <key>Type</key>
             <string>PSChildPaneSpecifier</string>            
         </dict>`
@@ -71,10 +74,7 @@ export class SettingBundlesDetailFormatter {
 </plist>`
 
       this.writer
-        .write(
-          `${basePath}/${baseName}/${license.libraryName}_${license.version}.plist`,
-          detailPlist
-        )
+        .write(`${basePath}/${baseName}/${libraryName}.plist`, detailPlist)
         .catch(err => console.error(err))
     })
 

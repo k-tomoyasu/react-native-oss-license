@@ -12,6 +12,7 @@ export default class LicenseCommand {
       .option('--depth <depth>', 'dependencies depth', Infinity)
       .option('--output-path <outputPath>', 'specify path where output file')
       .option('--json', 'output json to stdout', false)
+      .option('--add-version-number', 'write library version number', false)
       .option(
         '--only-direct-dependency',
         'output only dependencies you write packages.json.',
@@ -32,6 +33,7 @@ export default class LicenseCommand {
       format: command.format || null,
       outputJson: command.json,
       outputPath: command.outputPath,
+      addVersionNumber: command.addVersionNumber,
       onlyDirectDependency: command.onlyDirectDependency
     }
   }

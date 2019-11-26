@@ -9,8 +9,11 @@ export default class LicenseToolsPluginFormatter implements Formatter {
     const path = this.opt.outputPath || 'android/app/licenses-npm.yml'
     const licenseYaml: LicenseToolsPluginContent[] = []
     licenses.forEach(license => {
+      const artifact = this.opt.addVersionNumber
+        ? `npm:${license.libraryName}:${license.version}`
+        : `npm:${license.libraryName}`
       const elm: LicenseToolsPluginContent = {
-        artifact: `npm:${license.libraryName}:${license.version}`,
+        artifact: artifact,
         name: license.libraryName,
         license: license.license,
         url: license.homepage || '',

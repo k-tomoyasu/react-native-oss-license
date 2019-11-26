@@ -4,5 +4,6 @@ type CmdOption = {
   readonly format: string | null
   readonly outputJson: boolean
   readonly outputPath: string | null
+  readonly addVersionNumber: boolean
   readonly onlyDirectDependency: boolean
 }

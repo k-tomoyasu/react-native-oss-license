@@ -1,11 +1,10 @@
 import License from './License'
 
 export default class LicenseList {
-  private list: { [key: string]: License }
-
-  constructor(list: { [key: string]: License }) {
-    this.list = list
-  }
+  constructor(
+    private list: { [key: string]: License },
+    private cmdOpt: CmdOption
+  ) {}
 
   exists(libraryName: string, version: string): boolean {
     return !!this.list[this.key(libraryName, version)]
@@ -21,6 +20,9 @@ export default class LicenseList {
   }
 
   private key(libraryName: string, version: string): string {
-    return libraryName + version
+    if (this.cmdOpt.addVersionNumber) {
+      return libraryName + version
+    }
+    return libraryName
   }
 }

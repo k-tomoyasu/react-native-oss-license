@@ -1,5 +1,6 @@
 type FormatterOption = {
   readonly outputPath: string | null
+  readonly addVersionNumber: boolean
 }
 
 type SettingsBundleOption = {} & FormatterOption
