@@ -11,7 +11,7 @@ export default class LicenseToolsPluginFormatter implements Formatter {
     licenses.forEach(license => {
       const artifact = this.opt.addVersionNumber
         ? `npm:${license.libraryName}:${license.version}`
-        : `npm:${license.libraryName}`
+        : `npm:${license.libraryName}:+`
       const elm: LicenseToolsPluginContent = {
         artifact: artifact,
         name: license.libraryName,
