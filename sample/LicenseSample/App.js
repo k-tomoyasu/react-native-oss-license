@@ -47,7 +47,7 @@ const App: () => React$Node = () => {
               <View style={styles.sectionContainer}>
                 <Text style={styles.sectionTitle} onPress={openLicenseLink}> License List</Text>
               </View>
-            ) : ''
+            ) : null
           }
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
