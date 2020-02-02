@@ -1,5 +1,5 @@
 # react-native-oss-license
-![npm badge](https://badge.fury.io/js/react-native-oss-license.svg) 
+![npm badge](https://badge.fury.io/js/react-native-oss-license.svg)  
 `react-native-oss-license` is **license list generator for React Native App(iOS & Android)**.  
 It generates license lists of npm libraries for iOS, Android.  
 This CLI tool allow you to easily generate content of oss-license.
