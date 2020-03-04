@@ -25,6 +25,8 @@ export default class AboutLibraries implements Formatter {
         .replace(/'/g, "\\'")
         .replace(/"/g, '\\"')
         .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
       const libraryDetail = `
 <!-- ${license.libraryName} -->
 <string name="define_int_${libraryName}">year;owner</string>
