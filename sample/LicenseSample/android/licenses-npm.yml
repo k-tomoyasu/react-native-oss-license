@@ -715,11 +715,11 @@
   forceGenerate: true
 - artifact: npm:stream-buffers:2.2.0
   name: stream-buffers
-  license: Unlicense
   url: https://github.com/samcday/node-stream-buffer#readme
   authors:
     - Sam Day
   forceGenerate: true
+  skip: true
 - artifact: npm:bplist-parser:0.1.1
   name: bplist-parser
   license: MIT
@@ -729,7 +729,7 @@
   forceGenerate: true
 - artifact: npm:big-integer:1.6.47
   name: big-integer
-  license: Unlicense
+  skip: true
   url: https://github.com/peterolson/BigInteger.js#readme
   authors:
     - Peter Olson
@@ -757,7 +757,7 @@
   forceGenerate: true
 - artifact: npm:xmldom:0.1.27
   name: xmldom
-  license: ""
+  license: MIT
   url: https://github.com/jindw/xmldom
   authors:
     - jindw
@@ -1323,15 +1323,17 @@
     - ForbesLindesay
   forceGenerate: true
 - artifact: npm:rx-lite:4.0.8
+  skip: true
   name: rx-lite
-  license: ""
+  license: Copyright (c) Microsoft.  All rights reserved.
   url: https://github.com/Reactive-Extensions/RxJS
   authors:
     - Cloud Programmability Team
   forceGenerate: true
 - artifact: npm:rx-lite-aggregates:4.0.8
   name: rx-lite-aggregates
-  license: ""
+  skip: true
+  license: Copyright (c) Microsoft.  All rights reserved
   url: https://github.com/Reactive-Extensions/RxJS
   authors:
     - Cloud Programmability Team
@@ -3207,7 +3209,7 @@
   forceGenerate: true
 - artifact: npm:options:0.0.6
   name: options
-  license: ""
+  license: The MIT License
   url: https://github.com/einaros/options.js#readme
   authors:
     - Einar Otto Stangvik
@@ -3648,7 +3650,7 @@
   forceGenerate: true
 - artifact: npm:jsesc:0.5.0
   name: jsesc
-  license: ""
+  license: MIT
   url: http://mths.be/jsesc
   authors:
     - Mathias Bynens

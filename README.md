@@ -18,8 +18,8 @@ You can merge output `react-native-oss-license` and `LicensePlist`.
 ### Android
 It is assumed to be used with other tools.
 
-#### license-tools-plugin
-[license-tools-plugin](https://github.com/cookpad/license-tools-plugin) is Gradle plugin to check library licenses and generate license pages.  
+#### LicenseToolsPlugin
+[License Tools Plugin for Android](https://github.com/cookpad/LicenseToolsPlugin) is Gradle plugin to check library licenses and generate license pages.  
 It generate license list in YAML format.  
 `react-native-oss-license` generate same format content. You can merge results.
 
