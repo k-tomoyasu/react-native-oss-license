@@ -63,17 +63,18 @@ export default class AboutLibraries implements Formatter {
   }
 
   private getLicenseDetail(libraryName: string, license: License): string {
+    const licenseName = license.license || ''
     const installedLicense = !!(
-      license.license.match(/apache/i) ||
-      license.license.match(/bsd/i) ||
-      license.license.match(/mit/i)
+      licenseName.match(/apache/i) ||
+      licenseName.match(/bsd/i) ||
+      licenseName.match(/mit/i)
     )
     if (installedLicense) {
-      return `\n<string name="library_${libraryName}_licenseId">${license.license}</string>`
+      return `\n<string name="library_${libraryName}_licenseId">${licenseName}</string>`
     }
     return `
 <string name="library_${libraryName}_licenseContent">${license.licenseContent}</string>
-<string name="library_${libraryName}_licenseVersion">${license.license}</string>
+<string name="library_${libraryName}_licenseVersion">${licenseName}</string>
 `
   }
 }

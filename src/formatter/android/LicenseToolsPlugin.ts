@@ -15,7 +15,7 @@ export default class LicenseToolsPluginFormatter implements Formatter {
       const elm: LicenseToolsPluginContent = {
         artifact: artifact,
         name: license.libraryName,
-        license: license.license,
+        license: license.license || '#LICENSE#',
         url: license.homepage || '',
         authors: [(license.author && license.author.name) || 'unknown'],
         forceGenerate: true

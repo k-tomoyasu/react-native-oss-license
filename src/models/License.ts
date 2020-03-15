@@ -14,14 +14,14 @@ export default class License {
     return this._description || ''
   }
 
-  get license(): string {
+  get license(): string | null {
     if (typeof this._license == 'string') {
       return this._license
     }
     if (typeof this._license == 'object') {
       return this._license.type
     }
-    return ''
+    return null
   }
 
   get authorName(): string {
@@ -39,10 +39,10 @@ export default class License {
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
     }
-    return this.license
+    return this.license || ''
   }
 
   get rawLicenseContent(): string {
-    return this._licenseContent || this.license
+    return this._licenseContent || this.license || ''
   }
 }
