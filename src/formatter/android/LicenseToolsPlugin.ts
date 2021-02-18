@@ -17,7 +17,10 @@ export default class LicenseToolsPluginFormatter implements Formatter {
         name: license.libraryName,
         license: license.license || '#LICENSE#',
         url: license.homepage || '',
-        authors: [(license.author && license.author.name) || 'unknown'],
+        authors: [
+          (license.author && license.author.name) ||
+            `${license.libraryName} Authors`
+        ],
         forceGenerate: true
       }
       licenseYaml.push(elm)
