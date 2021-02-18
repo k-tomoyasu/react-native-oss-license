@@ -8,7 +8,8 @@
     "build:prod": "webpack --mode=production",
     "build:dev": "webpack --mode=development",
     "lint": "eslint 'src/**/*.ts'",
-    "lint:fix": "eslint 'src/**/*.ts' --fix"
+    "lint:fix": "eslint 'src/**/*.ts' --fix",
+    "prepare": "npm run build:prod"
   },
   "bin": {
     "react-native-oss-license": "./bin/react-native-oss-license.js"
