@@ -63,5 +63,5 @@ output settings-bundle format to 'ios/com.k-tomoyasu.react-native-oss-license.Ou
 ![about-libraries](screenshots/about-libraries.png)
 
 ## Acknowledgment
-This is based on [dart-oss-licenses](https://github.com/ko2ic/dart_oss_licensesA) consepts.  
+This is based on [dart-oss-licenses](https://github.com/ko2ic/dart_oss_licenses) consepts.  
 And referred [license-list](https://github.com/yami-beta/license-list).
