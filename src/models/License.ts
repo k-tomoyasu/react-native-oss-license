@@ -1,5 +1,5 @@
 export default class License {
-  static excludedLicenses = ['0BSD', 'Unlicense']
+  static excludedLicenses = ['0BSD', 'Public Domain', 'Unlicense']
 
   constructor(
     readonly libraryName: string,
