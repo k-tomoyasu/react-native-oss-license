@@ -21,6 +21,7 @@ function main(): void {
   }
 
   readPackages(cmdOpt)
+    .then(licenses => licenses.filter(it => it.shouldBeListed))
     .then(licenses => {
       if (cmdOpt.outputJson) {
         console.log(JSON.stringify(licenses))

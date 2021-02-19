@@ -1,4 +1,6 @@
 export default class License {
+  static excludedLicenses = ['0BSD', 'Unlicense']
+
   constructor(
     readonly libraryName: string,
     readonly version: string,
@@ -44,5 +46,13 @@ export default class License {
 
   get rawLicenseContent(): string {
     return this._licenseContent || this.license || ''
+  }
+
+  get shouldBeListed(): boolean {
+    const license = this.license
+    if (!license) {
+      return false
+    }
+    return !License.excludedLicenses.includes(license)
   }
 }
