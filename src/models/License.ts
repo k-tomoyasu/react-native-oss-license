@@ -51,7 +51,7 @@ export default class License {
   get shouldBeListed(): boolean {
     const license = this.license
     if (!license) {
-      return false
+      return true
     }
     return !License.excludedLicenses.includes(license)
   }
