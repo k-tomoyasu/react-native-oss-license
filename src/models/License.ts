@@ -1,5 +1,5 @@
 export default class License {
-  static excludedLicenses = ['0BSD', 'Public Domain', 'Unlicense']
+  static noticeNotRequiredLicenses = ['0BSD', 'Public Domain', 'Unlicense']
 
   constructor(
     readonly libraryName: string,
@@ -48,11 +48,11 @@ export default class License {
     return this._licenseContent || this.license || ''
   }
 
-  get shouldBeListed(): boolean {
+  get requiresNotice(): boolean {
     const license = this.license
     if (!license) {
       return true
     }
-    return !License.excludedLicenses.includes(license)
+    return !License.noticeNotRequiredLicenses.includes(license)
   }
 }
