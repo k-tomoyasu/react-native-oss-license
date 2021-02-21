@@ -21,11 +21,13 @@ function main(): void {
   }
 
   readPackages(cmdOpt)
-    .then(licenses => licenses.filter(it => it.shouldBeListed))
     .then(licenses => {
       if (cmdOpt.outputJson) {
         console.log(JSON.stringify(licenses))
         return
+      }
+      if (cmdOpt.skipNotRequired) {
+        licenses = licenses.filter(it => it.requiresNotice)
       }
       FormatterFactory.create(cmdOpt).output(licenses)
     })
