@@ -1,4 +1,6 @@
 export default class License {
+  static noticeNotRequiredLicenses = ['0BSD', 'Public Domain', 'Unlicense']
+
   constructor(
     readonly libraryName: string,
     readonly version: string,
@@ -44,5 +46,13 @@ export default class License {
 
   get rawLicenseContent(): string {
     return this._licenseContent || this.license || ''
+  }
+
+  get requiresNotice(): boolean {
+    const license = this.license
+    if (!license) {
+      return true
+    }
+    return !License.noticeNotRequiredLicenses.includes(license)
   }
 }

@@ -26,6 +26,9 @@ function main(): void {
         console.log(JSON.stringify(licenses))
         return
       }
+      if (cmdOpt.skipNotRequired) {
+        licenses = licenses.filter(it => it.requiresNotice)
+      }
       FormatterFactory.create(cmdOpt).output(licenses)
     })
     .catch(err => console.error(err))

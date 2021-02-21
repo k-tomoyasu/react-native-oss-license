@@ -18,6 +18,11 @@ export default class LicenseCommand {
         'output only dependencies you write packages.json.',
         false
       )
+      .option(
+        '--skip-not-required',
+        'skip licenses those not require copyright notice',
+        false
+      )
       .version('0.0.1', '--version', 'show current version')
   }
 
@@ -34,7 +39,8 @@ export default class LicenseCommand {
       outputJson: command.json,
       outputPath: command.outputPath,
       addVersionNumber: command.addVersionNumber,
-      onlyDirectDependency: command.onlyDirectDependency
+      onlyDirectDependency: command.onlyDirectDependency,
+      skipNotRequired: command.skipNotRequired
     }
   }
 }
