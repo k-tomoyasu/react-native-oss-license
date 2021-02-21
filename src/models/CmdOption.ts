@@ -6,4 +6,5 @@ type CmdOption = {
   readonly outputPath: string | null
   readonly addVersionNumber: boolean
   readonly onlyDirectDependency: boolean
+  readonly skipNotRequired: boolean
 }
