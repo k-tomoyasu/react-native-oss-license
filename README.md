@@ -11,8 +11,11 @@ This CLI tool allow you to easily generate content of oss-license.
 
 ## Usage
 ### iOS
-`react-native-oss-license` generate `plist` that you can locate to `Settings.bundle`.  
 Recommended to use with [LicensePlist](https://github.com/mono0926/LicensePlist) that scan cocoaopds, carthage.  
+
+#### [LicensePlist](https://github.com/mono0926/LicensePlist)
+`react-native-oss-license` generate `plist` that you can locate to `Settings.bundle`.  
+Run `react-native-oss-license --format settings-bundle` when your are in the directory thant contains `package.json`
 You can merge output `react-native-oss-license` and `LicensePlist`.
 
 ### Android
@@ -20,13 +23,14 @@ It is assumed to be used with other tools.
 
 #### LicenseToolsPlugin
 [License Tools Plugin for Android](https://github.com/cookpad/LicenseToolsPlugin) is Gradle plugin to check library licenses and generate license pages.  
+Run `react-native-oss-license --format license-tools-plugin`.
 It generate license list in YAML format.  
 `react-native-oss-license` generate same format content. You can merge results.
 
 #### AboutLibraries
 [AboutLibraries](https://github.com/mikepenz/AboutLibraries) provides fragment/activity that show license list.  
 `react-native-oss-license` generate string resource xml `AboutLibraries` use.  
-run `react-native-oss-license --format about-libraries`, output strings.xml that you can put into `res/values/`.  
+Run `react-native-oss-license --format about-libraries`, output strings.xml that you can put into `res/values/`.  
 and output stdout `withLibraries("package_name_A", "package_name_B" ...)` that pass to method `withLibraries`.
 
 ### CLI
