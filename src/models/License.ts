@@ -1,5 +1,10 @@
 export default class License {
-  static noticeNotRequiredLicenses = ['0BSD', 'Public Domain', 'Unlicense']
+  static noticeNotRequiredLicenses = [
+    '0BSD',
+    'Public Domain',
+    'Unlicense',
+    'UNLICENSED'
+  ]
 
   constructor(
     readonly libraryName: string,
