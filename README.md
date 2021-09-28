@@ -15,7 +15,7 @@ Recommended to use with [LicensePlist](https://github.com/mono0926/LicensePlist)
 
 #### [LicensePlist](https://github.com/mono0926/LicensePlist)
 `react-native-oss-license` generate `plist` that you can locate to `Settings.bundle`.  
-Run `react-native-oss-license --format settings-bundle` when your are in the directory thant contains `package.json`
+Run `react-native-oss-license --format settings-bundle` when your are in the directory that contains `package.json`
 You can merge output `react-native-oss-license` and `LicensePlist`.
 
 ### Android
