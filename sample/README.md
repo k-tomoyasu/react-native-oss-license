@@ -1,7 +1,7 @@
 # react-native-oss-license sample app
 ## iOS using [LicensePlist](https://github.com/mono0926/LicensePlist)
 using format `react-native-oss-license --format settings-bundle`
-changes ing
+changes in
 - [Podfile](LicenseSample/ios/Podfile)
 import `LicensePlist` to generate license list of cocoapods libraries
 - [Settings.bundle](https://github.com/k-tomoyasu/react-native-oss-license/tree/master/sample/LicenseSample/ios/Settings.bundle)
