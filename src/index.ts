@@ -22,12 +22,12 @@ function main(): void {
 
   readPackages(cmdOpt)
     .then(licenses => {
+      if (cmdOpt.skipNotRequired) {
+        licenses = licenses.filter(it => it.requiresNotice)
+      }
       if (cmdOpt.outputJson) {
         console.log(JSON.stringify(licenses))
         return
-      }
-      if (cmdOpt.skipNotRequired) {
-        licenses = licenses.filter(it => it.requiresNotice)
       }
       FormatterFactory.create(cmdOpt).output(licenses)
     })
