@@ -23,7 +23,6 @@ export default function readPackages(cmdOpt: CmdOption): Promise<License[]> {
         if (err) {
           reject(err)
         }
-        console.log(directDependencies)
         const licenseList = walkDependencies(
           pkg,
           new LicenseList({}, cmdOpt),
