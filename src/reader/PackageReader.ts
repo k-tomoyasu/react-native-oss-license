@@ -9,9 +9,10 @@ const readInstalled = require('read-installed')
 export default function readPackages(cmdOpt: CmdOption): Promise<License[]> {
   const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
   const directDependencies = Object.keys(packageJson.dependencies || {}).concat(
-    Object.keys(packageJson.devDependencies || {})
+    cmdOpt.includeDevDependencies
+      ? Object.keys(packageJson.devDependencies || {})
+      : []
   )
-
   return new Promise<License[]>((resolve, reject) => {
     const inputPath = '.'
     readInstalled(
@@ -22,6 +23,7 @@ export default function readPackages(cmdOpt: CmdOption): Promise<License[]> {
         if (err) {
           reject(err)
         }
+        console.log(directDependencies)
         const licenseList = walkDependencies(
           pkg,
           new LicenseList({}, cmdOpt),
