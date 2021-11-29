@@ -3,6 +3,8 @@ type FormatterOption = {
   readonly addVersionNumber: boolean
 }
 
-type SettingsBundleOption = {} & FormatterOption
+type SettingsBundleOption = {
+  readonly bundleId: string | null
+} & FormatterOption
 type AboutLibrariesOption = {} & FormatterOption
 type LicenseToolsPluginOption = {} & FormatterOption
