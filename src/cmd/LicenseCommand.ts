@@ -23,6 +23,11 @@ export default class LicenseCommand {
         'skip licenses those not require copyright notice',
         false
       )
+      .option(
+        '--bundle-id <bundleId>',
+        'unique id of your app.  It is used for output such as "plist" filename, etc.',
+        null
+      )
       .version('0.0.1', '--version', 'show current version')
   }
 
@@ -40,7 +45,8 @@ export default class LicenseCommand {
       outputPath: command.outputPath,
       addVersionNumber: command.addVersionNumber,
       onlyDirectDependency: command.onlyDirectDependency,
-      skipNotRequired: command.skipNotRequired
+      skipNotRequired: command.skipNotRequired,
+      bundleId: command.bundleId
     }
   }
 }

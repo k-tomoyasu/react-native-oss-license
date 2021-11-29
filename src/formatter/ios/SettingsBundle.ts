@@ -1,8 +1,6 @@
 import Formatter from '../Formatter'
 import License from '../../models/License'
 
-const baseName = 'com.k-tomoyasu.react-native-oss-license'
-
 export default class SettingBundlesFormatter implements Formatter {
   constructor(
     private opt: SettingsBundleOption,
@@ -11,9 +9,12 @@ export default class SettingBundlesFormatter implements Formatter {
   ) {}
 
   output(licenses: License[]): void {
+    const baseName =
+      this.opt.bundleId || 'com.k-tomoyasu.react-native-oss-license'
     const basePath = this.opt.outputPath || `ios/${baseName}.Output`
     const licenseListContent = this.detailFormatter.outputDetail(
       licenses,
+      baseName,
       basePath
     )
     const plist = `<?xml version="1.0" encoding="UTF-8"?>
@@ -42,7 +43,11 @@ export default class SettingBundlesFormatter implements Formatter {
 
 export class SettingBundlesDetailFormatter {
   constructor(private writer: Writer, private opt: SettingsBundleOption) {}
-  outputDetail(licenses: License[], basePath: string): string {
+  outputDetail(
+    licenses: License[],
+    baseName: string,
+    basePath: string
+  ): string {
     let licenseListContent = ''
     licenses.forEach(license => {
       const libraryName = this.opt.addVersionNumber

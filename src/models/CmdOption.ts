@@ -7,4 +7,5 @@ type CmdOption = {
   readonly addVersionNumber: boolean
   readonly onlyDirectDependency: boolean
   readonly skipNotRequired: boolean
+  readonly bundleId: string | null
 }
