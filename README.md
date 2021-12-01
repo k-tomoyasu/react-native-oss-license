@@ -48,6 +48,7 @@ Options:
   --add-version-number        write library version number (default: false)
   --only-direct-dependency    output only dependencies you write packages.json. (default: false)
   --skip-not-required         skip licenses those not require copyright notice (default: false)
+  --bundle-id <bundleId>      unique id of your app.  It is used for output such as "plist" filename, etc. (default: null)
   --version                   show current version
   -h, --help                  output usage information
 
