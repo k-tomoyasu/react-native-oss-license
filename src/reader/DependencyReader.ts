@@ -35,7 +35,7 @@ export default function walkDependencies(
     const isDirectDependency = directDependencies.indexOf(pkg.name) >= 0
     if (opt.onlyDirectDependency && !isDirectDependency) return licenseList
     const licenseFiles = glob.sync(
-      path.join(pkg.path, '{LICENSE,License,license}*')
+      path.join(pkg.path, '{LICEN[SC]E,[Ll]icen[sc]e}*')
     )
     if (licenseFiles.length > 0) {
       pkg.licenseContent = fs.readFileSync(licenseFiles[0], 'utf8')
