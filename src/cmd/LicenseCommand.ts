@@ -28,7 +28,7 @@ export default class LicenseCommand {
         'unique id of your app.  It is used for output such as "plist" filename, etc.',
         null
       )
-      .version('0.5.0', '--version', 'show current version')
+      .version('0.5.1', '--version', 'show current version')
   }
 
   parse(args: string[]): CmdOption {
