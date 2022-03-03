@@ -3,7 +3,6 @@ import he from 'he'
 import Formatter from '../Formatter'
 import License from '../../models/License'
 
-
 export default class AboutLibraries implements Formatter {
   constructor(private opt: AboutLibrariesOption, private writer: Writer) {}
 
@@ -13,9 +12,18 @@ export default class AboutLibraries implements Formatter {
       'android/app/src/main/res/values/license_npm_libs_strings.xml'
     let licenseContent = ''
 
+    const unique: Record<string, number> = {}
+    const distinct: License[] = []
+    for (let i = 0; i < licenses.length; i++) {
+      const libraryName = licenses[i].libraryName
+      if (!unique[libraryName]) {
+        distinct.push(licenses[i])
+        unique[libraryName] = 1
+      }
+    }
 
     const libraryNameList: string[] = []
-    licenses.forEach(license => {
+    distinct.forEach(license => {
       const authorName = he.encode(license.authorName)
       const name = he.encode(license.libraryName)
 
@@ -47,7 +55,7 @@ export default class AboutLibraries implements Formatter {
 <string name="library_${libraryName}_repositoryLink">${license.repositoryUrl}</string>
 <!-- Custom variables section -->
 <string name="library_${libraryName}_year"></string>
-<string name="library_${libraryName}_owner"></string>"`
+<string name="library_${libraryName}_owner"></string>`
 
       licenseContent +=
         libraryDetail + this.getLicenseDetail(libraryName, license)
@@ -80,8 +88,8 @@ export default class AboutLibraries implements Formatter {
     if (installedLicense) {
       return `\n<string name="library_${libraryName}_licenseId">${licenseName}</string>`
     }
-    return `"
-<string name="library_${libraryName}_licenseContent">${license.licenseContent}</string>
+    return `
+<string name="library_${libraryName}_licenseContent">"${license.licenseContent}"</string>
 <string name="library_${libraryName}_licenseVersion">${licenseName}</string>
 `
   }
