@@ -15,7 +15,7 @@ export default class AboutLibraries implements Formatter {
     const unique: Record<string, number> = {}
     const distinct: License[] = []
     for (let i = 0; i < licenses.length; i++) {
-      const libraryName = licenses[i].libraryName
+      const libraryName = licenses[i].libraryName.replace(/[^\w\s]/gi, '')
       if (!unique[libraryName]) {
         distinct.push(licenses[i])
         unique[libraryName] = 1
