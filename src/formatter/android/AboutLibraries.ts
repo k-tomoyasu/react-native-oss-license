@@ -45,7 +45,7 @@ export default class AboutLibraries implements Formatter {
         .replace(/>/g, '&gt;')
       const libraryDetail = `
 <!-- ${license.libraryName} -->
-<string name="define_int_${libraryName}">year;owner</string>
+<string name="define_plu_${libraryName}">year;owner</string>
 <string name="library_${libraryName}_author">"${authorName}"</string>
 <string name="library_${libraryName}_libraryName">"${name}"</string>
 <string name="library_${libraryName}_libraryVersion">${license.version}</string>
@@ -62,6 +62,7 @@ export default class AboutLibraries implements Formatter {
     })
 
     const resourceXml = `<?xml version="1.0" encoding="utf-8"?>
+<!--suppress CheckTagEmptyBody -->
 <resources>
     ${licenseContent}
 </resources>`
