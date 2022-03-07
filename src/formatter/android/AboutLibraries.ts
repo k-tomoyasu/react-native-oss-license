@@ -10,6 +10,7 @@ export default class AboutLibraries implements Formatter {
     const path =
       this.opt.outputPath ||
       'android/app/src/main/res/values/license_npm_libs_strings.xml'
+    const prefix = this.opt.usesPlugin ? 'define_plu_' : 'define_int_'
     let licenseContent = ''
 
     const libraryNameList: string[] = []
@@ -35,7 +36,7 @@ export default class AboutLibraries implements Formatter {
         .replace(/>/g, '&gt;')
       const libraryDetail = `
 <!-- ${license.libraryName} -->
-<string name="define_plu_${libraryName}">year;owner</string>
+<string name="${prefix}${libraryName}">year;owner</string>
 <string name="library_${libraryName}_author">"${authorName}"</string>
 <string name="library_${libraryName}_libraryName">"${name}"</string>
 <string name="library_${libraryName}_libraryVersion">${license.version}</string>
