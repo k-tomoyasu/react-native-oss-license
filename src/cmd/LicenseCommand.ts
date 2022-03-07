@@ -30,7 +30,7 @@ export default class LicenseCommand {
       )
       .option(
         '--uses-plugin',
-        'whether AboutLibraries android plugin is used native',
+        'whether AboutLibraries android plugin is used on native side as well',
         false
       )
       .version('0.5.1', '--version', 'show current version')
