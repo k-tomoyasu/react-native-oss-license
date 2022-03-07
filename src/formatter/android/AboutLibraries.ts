@@ -12,18 +12,8 @@ export default class AboutLibraries implements Formatter {
       'android/app/src/main/res/values/license_npm_libs_strings.xml'
     let licenseContent = ''
 
-    const unique: Record<string, number> = {}
-    const distinct: License[] = []
-    for (let i = 0; i < licenses.length; i++) {
-      const libraryName = licenses[i].libraryName.replace(/[^\w\s]/gi, '')
-      if (!unique[libraryName]) {
-        distinct.push(licenses[i])
-        unique[libraryName] = 1
-      }
-    }
-
     const libraryNameList: string[] = []
-    distinct.forEach(license => {
+    licenses.forEach(license => {
       const authorName = he.encode(license.authorName)
       const name = he.encode(license.libraryName)
 
