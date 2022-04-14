@@ -29,7 +29,7 @@ export default function readPackages(cmdOpt: CmdOption): Promise<License[]> {
           cmdOpt,
           directDependencies
         )
-        const licenses = licenseList.getUniqueList().sort((lhs, rhs) => {
+        const licenses = licenseList.getList().sort((lhs, rhs) => {
           if (lhs.libraryName < rhs.libraryName) {
             return -1
           }
