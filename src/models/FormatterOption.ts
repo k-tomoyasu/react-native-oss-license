@@ -6,5 +6,10 @@ type FormatterOption = {
 type SettingsBundleOption = {
   readonly bundleId: string | null
 } & FormatterOption
-type AboutLibrariesOption = {} & FormatterOption
+type AboutLibrariesOption = {
+  /**
+   * Whether the native plugin is also used to generate native dependencies.
+   */
+  usesPlugin: boolean
+} & FormatterOption
 type LicenseToolsPluginOption = {} & FormatterOption

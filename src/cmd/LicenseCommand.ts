@@ -28,6 +28,11 @@ export default class LicenseCommand {
         'unique id of your app.  It is used for output such as "plist" filename, etc.',
         null
       )
+      .option(
+        '--uses-plugin',
+        'whether AboutLibraries android plugin is used on native side as well',
+        false
+      )
       .version('0.5.1', '--version', 'show current version')
   }
 
@@ -46,7 +51,8 @@ export default class LicenseCommand {
       addVersionNumber: command.addVersionNumber,
       onlyDirectDependency: command.onlyDirectDependency,
       skipNotRequired: command.skipNotRequired,
-      bundleId: command.bundleId
+      bundleId: command.bundleId,
+      usesPlugin: command.usesPlugin
     }
   }
 }
