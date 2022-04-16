@@ -40,15 +40,16 @@ and output stdout `withLibraries("package_name_A", "package_name_B" ...)` that p
 Usage: react-native-oss-license [options]
 
 Options:
-  -f, --format <format>       require output format. options:[settings-bundle,license-tools-plugin,about-libraries]
+  -f, --format <format>       output format. options:[settings-bundle,license-tools-plugin,about-libraries]
   --dev                       include devDependencies (default: false)
   --depth <depth>             dependencies depth (default: null)
-  --output-path <outputPath>  specify path where output file (default: "default path")
+  --output-path <outputPath>  specify path where output file
   --json                      output json to stdout (default: false)
   --add-version-number        write library version number (default: false)
   --only-direct-dependency    output only dependencies you write packages.json. (default: false)
   --skip-not-required         skip licenses those not require copyright notice (default: false)
   --bundle-id <bundleId>      unique id of your app.  It is used for output such as "plist" filename, etc. (default: null)
+  --uses-plugin               whether AboutLibraries android plugin is used on native side as well (default: false)
   --version                   show current version
   -h, --help                  output usage information
 
