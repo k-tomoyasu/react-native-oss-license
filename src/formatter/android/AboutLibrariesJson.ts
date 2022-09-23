@@ -1,4 +1,5 @@
 import he from 'he'
+import crypto from 'crypto'
 
 import Formatter from '../Formatter'
 import License from '../../models/License'
@@ -77,7 +78,12 @@ export default class AboutLibrariesJson implements Formatter {
     if (license.licenseContent == '') {
       return prefix
     } else {
-      return `${prefix}_${this.getLibraryUniqueId(license)}`
+      const licenseContentHash = crypto
+        .createHash('sha256')
+        .update(Buffer.from(license.licenseContent))
+        .digest('hex')
+      // same license and licenseContent is considered identical
+      return `${prefix}_${licenseContentHash}`
     }
   }
 }
