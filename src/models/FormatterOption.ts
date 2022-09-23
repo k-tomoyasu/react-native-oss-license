@@ -12,4 +12,5 @@ type AboutLibrariesOption = {
    */
   usesPlugin: boolean
 } & FormatterOption
+type AboutLibrariesJsonOption = {} & FormatterOption
 type LicenseToolsPluginOption = {} & FormatterOption
