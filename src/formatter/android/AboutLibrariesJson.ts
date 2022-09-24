@@ -24,7 +24,12 @@ export default class AboutLibrariesJson implements Formatter {
 
       const libraryJson = {
         uniqueId: libraryUniqueId,
-        developers: [authorName],
+        developers: [
+          {
+            name: authorName,
+            organisationUrl: ''
+          }
+        ],
         artifactVersion: version,
         description,
         name,
