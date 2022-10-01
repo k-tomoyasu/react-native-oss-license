@@ -2,7 +2,8 @@
 enum Format {
   SettingsBunddle = 'settings-bundle',
   LicenseToolsPlugin = 'license-tools-plugin',
-  AboutLibraries = 'about-libraries'
+  AboutLibraries = 'about-libraries',
+  AboutLibrariesJson = 'about-libraries-json'
 }
 
 namespace Format {

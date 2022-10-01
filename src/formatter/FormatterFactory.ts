@@ -6,6 +6,7 @@ import LicenseToolsPlugin from './android/LicenseToolsPlugin'
 import Format from '../models/Format'
 import AboutLibraries from './android/AboutLibraries'
 import FileWriter from '../writer/FileWriter'
+import AboutLibrariesJson from './android/AboutLibrariesJson'
 
 export default class FormatterFactory {
   static create(opt: CmdOption): Formatter {
@@ -21,6 +22,8 @@ export default class FormatterFactory {
         return new LicenseToolsPlugin(opt, writer)
       case Format.AboutLibraries:
         return new AboutLibraries(opt, writer)
+      case Format.AboutLibrariesJson:
+        return new AboutLibrariesJson(opt, writer)
       default: {
         throw new Error(
           `invalid format [${
