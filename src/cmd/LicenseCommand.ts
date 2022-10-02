@@ -33,7 +33,7 @@ export default class LicenseCommand {
         'whether AboutLibraries android plugin is used on native side as well',
         false
       )
-      .version('0.6.0', '--version', 'show current version')
+      .version('0.7.0', '--version', 'show current version')
   }
 
   parse(args: string[]): CmdOption {
