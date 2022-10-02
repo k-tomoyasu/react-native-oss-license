@@ -1,6 +1,6 @@
 {
   "name": "react-native-oss-license",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "License list generator for react-native app",
   "main": "index.js",
   "scripts": {
